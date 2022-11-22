@@ -5,7 +5,13 @@
 
     <th:block th:fragment="content">
 
-        <h1 class="mt-4">GuestBook List Page</h1>
+        <h1 class="mt-4">GuestBook List Page
+            <span>
+                <a th:href="@{/guestbook/register}">
+                    <button type="button" class="btn btn-outline-primary">REGISTER</button>
+                </a>
+            </span>
+        </h1>
 
         <!--
         <form action="/guestbook/list" method="get" id="searchForm">
@@ -44,16 +50,16 @@
             <tbody>
 
             <tr th:each="dto : ${result.dtoList}" >
+
                 <th scope="row">
-                    <!--
                     <a th:href="@{/guestbook/read(gno = ${dto.gno},
                     page= ${result.page},
                     type=${pageRequestDTO.type} ,
                     keyword = ${pageRequestDTO.keyword})}">
                         [[${dto.gno}]]
                     </a>
-                    -->
                 </th>
+
                 <td>[[${dto.title}]]</td>
                 <td>[[${dto.writer}]]</td>
                 <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
@@ -64,7 +70,7 @@
             </tbody>
         </table>
 
-        <!--
+
         <ul class="pagination h-100 justify-content-center align-items-center">
 
             <li class="page-item " th:if="${result.prev}">
@@ -135,7 +141,6 @@
 
 
         </script>
--->
 
 
     </th:block>
